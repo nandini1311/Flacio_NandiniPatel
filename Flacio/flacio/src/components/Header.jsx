@@ -9,11 +9,13 @@ import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRig
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import MenuIcon from "@mui/icons-material/Menu";
 import Dialog from '@mui/material/Dialog';
-import { Link } from "react-router-dom"; 
+import { useLocation, Link } from "react-router-dom"; 
 import "aos/dist/aos.css";   
 import AOS from "aos";
 
 export default function Header() {
+  const location = useLocation(); 
+  const isHomePage = location.pathname === "/";
   const [open, setOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(false);
   const [loginOpen, setloginOpen] = useState(false);
@@ -30,11 +32,16 @@ export default function Header() {
       }
     };
   
-    window.addEventListener("scroll", handleScroll);
+    if (isHomePage) {
+      window.addEventListener("scroll", handleScroll);
+    } else {
+      setScrolled(true); 
+    }
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isHomePage]);
   
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -43,7 +50,7 @@ export default function Header() {
   return(
     <>
       <header className={`fixed top-0 left-0 w-full h-21.25 z-50 flex items-center transition-all duration-300 px-4
-        ${scrolled ? "bg-white text-black shadow-md" : "bg-transparent text-white border-b border-white/30" }`}>
+        ${(scrolled || !isHomePage)? "bg-white text-black shadow-md" : "bg-transparent text-white border-b border-white/30" }`}>
 
         <div className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-3 items-center w-full">
           <div className="flex items-center md:gap-6 justify-start">
@@ -79,11 +86,11 @@ export default function Header() {
                   <div className="flex gap-6 text-[#224229]">
                     <div className="relative hover:-translate-y-5 duration-300">
                       <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/shop1.webp?v=1727751500"/>
-                      <span className="absolute left-26 bottom-16 text-center px-4 py-2 bg-white text-xs">NEW ARRIVALS</span>
+                      <span className="absolute left-26 bottom-16 text-center px-4 py-2 bg-white text-xs hover:bg-[#224229] hover:text-white duration-500">NEW ARRIVALS</span>
                     </div>  
                     <div className="relative hover:-translate-y-5 duration-300">
                       <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/shop2.webp?v=1727751500"/>
-                      <span className="absolute left-26 bottom-16 text-center px-4 py-2 bg-white text-xs">BEST SELLERS</span>
+                      <span className="absolute left-26 bottom-16 text-center px-4 py-2 bg-white text-xs hover:bg-[#224229] hover:text-white duration-500">BEST SELLERS</span>
                     </div> 
                   </div>
                   <div className="grid grid-cols-3 gap-5">
@@ -352,7 +359,7 @@ export default function Header() {
                   <span onClick={() => setView("forgot")} className="cursor-pointer underline underline-offset-4 text-xs text-[#313232]">Lost your password ?</span>
                   <div className="buttons grid grid-cols-2 gap-4">
                     <button className="text-[10px] tracking-widest bg-[#313232] text-white py-3">SIGN IN</button>
-                    <button className="text-[10px] hover:bg-[#224229] hover:text-white duratio-400 border border-[#313232] tracking-widest text-[#313232] py-3">CREATE YOUR ACCOUNT</button>
+                    <Link to="/createaccount" className="text-[10px] hover:bg-[#224229] hover:text-white duration-400 border border-[#313232] text-center tracking-widest text-[#313232] py-3">CREATE YOUR ACCOUNT</Link>
                   </div>
                 </div>
               )} 

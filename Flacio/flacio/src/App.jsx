@@ -4,11 +4,15 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import {PopOver, Hero, Decorate, Rating, Review, Plants, SignUp, BringLife} from "./pages/LandingPage";
 import Wishlist from "./pages/Wishlist";
+import CreateAccount from "./pages/CreateAccount";
+import Products from "./pages/Products";
+import LogIn from "./pages/LogIn";
 
 
 function App() {
   return (
     <>
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
       <Header />
 
       <main className="flex-1">
@@ -26,11 +30,15 @@ function App() {
                 </>
               } 
             />
+          <Route path="/products" element={<Products />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/createaccount" element={<CreateAccount />} />
+          <Route path="/login" element={<LogIn />} />
         </Routes>
       </main>  
 
       <Footer />
+      </div>
     </>
   );
 }

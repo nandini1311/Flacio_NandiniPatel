@@ -32,7 +32,7 @@ export default function Footer(){
           <li className="text-sm tracking-wider">Help + FAQs</li>
           <li className="text-sm tracking-wider">Track Your Order</li>
           <li className="text-sm tracking-wider">Shipping</li>
-          <li className="text-sm tracking-wider">Returns</li>
+          <li className="text-sm tracking-wider">Returns orders</li>
           <li className="text-sm tracking-wider">Contact Support</li>
         </ul> 
       </div>

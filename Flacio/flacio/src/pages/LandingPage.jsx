@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../App.css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 import { Autoplay, EffectFade, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -18,7 +19,7 @@ export function PopOver(){
   const [open, setOpen] = useState(true)
 
   return(
-    <Dialog open={open} onClose={() => setOpen(false)} maxWidth={false} sx={{"& .MuiDialogPaper-root": { maxWidth:"500px", overflow: "hidden"}}}>
+    <Dialog open={open} onClose={() => setOpen(false)} fullWidth maxWidth="md">
       <div className="grid grid-cols-2 w-full items-stretch h-full relative">
         <CloseIcon onClick={() => setOpen(false)} sx={{ position: "absolute", top: 10, right: 10, background: "white", p:0.5 }}></CloseIcon>
         <div className="left-text flex flex-col justify-center items-start px-7 gap-4 w-full">
@@ -100,9 +101,9 @@ export function Hero() {
                   </p>  
           
                   <div className="flex gap-4 mt-15">
-                    <button className="bg-white hover:bg-[#224229] duration-500 hover:text-white text-sm text-[#313232] px-6 md:px-10 py-4">
+                    <Link to="/products" className="bg-white hover:bg-[#224229] duration-500 hover:text-white text-sm text-[#313232] px-6 md:px-10 py-4">
                       Shop indoor
-                    </button>
+                    </Link>
 
                     <button className="bg-white hover:bg-[#224229] duration-500 font-medium hover:text-white  text-sm text-[#313232] px-6 md:px-10 py-4">
                       Shop outdoor
@@ -307,7 +308,7 @@ export function Plants(){
     <div className="py-25 px-12 flex flex-col gap-15">
       <div className="grid grid-cols-2">
         <div className="left relative">
-          <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/text-rotate.png?v=1727860890" className="absolute left-16 -top-13 "/>
+          <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/text-rotate.png?v=1727860890" className="absolute left-16 -top-13 animate-[spin_15s_linear_infinite]"/>
           <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/banner-4.jpg?v=1727860877"/>          
         </div>
         <div className="right flex flex-col items-start px-18 justify-center gap-6">
@@ -330,7 +331,7 @@ export function Plants(){
           <button className="py-3 px-8 text-sm tracking-wider text-white bg-[#224229] hover:bg-[#323232] duration-400">Shop Collection</button>
         </div>
         <div className="right relative">
-          <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/text-rotate.png?v=1727860890" className="absolute right-20 -top-13"/>
+          <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/text-rotate.png?v=1727860890" className="absolute right-20 -top-13 animate-[spin_15s_linear_infinite]"/>
           <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/banner-5.jpg?v=1727860876" />
        </div>
     </div>
