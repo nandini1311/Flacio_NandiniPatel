@@ -61,20 +61,20 @@ export default function Header() {
               <SearchIcon sx={{ fontSize: "24px" }} />
             </IconButton>
 
-            <div className="menus hidden lg:flex gap-6">
+            <div className="menus hidden lg:flex items-center gap-6">
               <div className="title static group cursor-pointer">
                 <div className="nav-link active flex items-center gap-1">
                   <Link className="text-xs tracking-wider">HOME</Link>
                   <i className="fa-solid fa-angle-down text-[10px]"></i>
                 </div>
-                <div className="absolute grid grid-cols-3 gap-5 bg-white left-0 top-full p-4 w-185 opacity-0 invisible group-hover:visible group-hover:opacity-100">
+                <div className="absolute z-50 grid grid-cols-3 gap-5 bg-white left-0 top-full p-4 w-185 opacity-0 invisible group-hover:visible group-hover:opacity-100">
                   <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-1.jpg?v=1729049735" />Home Modern</div>
                   <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-2.jpg?v=1729049735" />Home Flat</div>
                   <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-3.jpg?v=1729049735" />Home Collection</div>
                   <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-4.jpg?v=1729049735" />Home Classic</div>
                   <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-5.jpg?v=1729049735" />Home Clean</div>
                   <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-6.jpg?v=1729049735" />Home Stylish</div>
-               </div>
+              </div>
              </div>
  
               <div className="title static group cursor-pointer">
@@ -126,7 +126,7 @@ export default function Header() {
                   <Link className="text-xs tracking-wider">PRODUCT</Link>
                   <i className="fa-solid fa-angle-down text-[10px]"></i>
                 </div>
-                <div className="absolute grid grid-cols-4 gap-7 bg-white w-full left-0 top-full px-18 py-10 opacity-0 invisible group-hover:visible group-hover:opacity-100">
+                <div className="absolute grid grid-cols-4 gap-7 bg-white left-0 w-full top-full px-18 py-10 opacity-0 invisible group-hover:visible group-hover:opacity-100">
                   <div className="product">
                     <h2 className="text-[#313232] font-['Libre_Baskerville'] text-xl border-b border-gray-300">Product Layout</h2>
                     <ul className="text-[#828787] text-sm pt-3 leading-7">

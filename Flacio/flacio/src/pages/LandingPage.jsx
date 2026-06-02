@@ -105,7 +105,7 @@ export function Hero() {
                       Shop indoor
                     </Link>
 
-                    <button className="bg-white hover:bg-[#224229] duration-500 font-medium hover:text-white  text-sm text-[#313232] px-6 md:px-10 py-4">
+                    <button className="bg-white hover:bg-[#224229] duration-500 font-medium hover:text-white text-sm text-[#313232] px-6 md:px-10 py-4">
                       Shop outdoor
                     </button>
                   </div>
@@ -115,7 +115,7 @@ export function Hero() {
           ))}
         </Swiper>
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr_1.2fr] px-4 lg:px-8 gap-3 mt-10 lg:-mt-45">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr_1.2fr] px-4 lg:px-8 gap-3 mt-10 lg:-mt-60">
           <div className="card-1 relative group overflow-hidden">
             <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/banner-1.jpg?v=1727768126" className="w-full h-full object-cover transition-transform duration-400 ease-in-out group-hover:scale-105" />
             <div className="content absolute inset-0 p-4 lg:p-8 flex flex-col gap-1 justify-end">

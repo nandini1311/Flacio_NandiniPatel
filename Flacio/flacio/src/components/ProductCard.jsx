@@ -18,7 +18,6 @@ const ProductCard = ({ product }) => {
       >
         <img
           src={isHovered && product.hoverImage ? product.hoverImage : product.defaultImage}
-          alt={product.title}
           className="h-full w-full object-cover object-center transition-transform duration-200 ease-in-out group-hover:scale-105"
         />
         
