@@ -204,7 +204,7 @@ export default function Header() {
                   <div className="page">
                     <h2 className="text-[#313232] font-['Libre_Baskerville'] text-xl border-b border-gray-300">Page</h2>
                     <ul className="text-[#828787] text-sm pt-3 leading-7">
-                      <li>About Us</li>  <li>Contact Us</li>  <li>Faqs</li>  <li>Faqs 2</li>
+                      <li>About Us</li>  <Link to="/contactus">Contact Us</Link>  <li>Faqs</li>  <li>Faqs 2</li>
                       <li>Wishlist</li>  <li>404 Error</li> 
                     </ul>
                   </div>
@@ -459,4 +459,4 @@ export default function Header() {
                 <ListItem className="text-xs text-[#313232] -ml-4">Sub Item 3</ListItem>
               </div>
             </List>
-          </div> */}
+     /</div> */}

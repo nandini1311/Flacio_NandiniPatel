@@ -2,12 +2,12 @@ import { Routes, Route } from 'react-router-dom';
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import {PopOver, Hero, Decorate, Rating, Review, Plants, SignUp, BringLife} from "./pages/LandingPage";
+import {PopOver, Announcement, Hero, Decorate, Rating, Review, Plants, SignUp, BringLife} from "./pages/LandingPage";
 import Wishlist from "./pages/Wishlist";
 import CreateAccount from "./pages/CreateAccount";
 import Products from "./pages/Products";
 import LogIn from "./pages/LogIn";
-
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
           <Route path="/" element=
               {<>
                 <PopOver />
+                <Announcement />
                 <Hero />
                 <Decorate />
                 <Rating />
@@ -34,6 +35,7 @@ function App() {
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/createaccount" element={<CreateAccount />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </main>  
 

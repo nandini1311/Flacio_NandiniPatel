@@ -1,5 +1,3 @@
-import IconButton from '@mui/material/IconButton';
-import React, { useState } from 'react';
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';

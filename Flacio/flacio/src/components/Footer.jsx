@@ -7,7 +7,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 
 
 export default function Footer(){
-    useEffect(() => {
+  useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
  

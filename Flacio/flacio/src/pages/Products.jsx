@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import Slider from "@mui/material/Slider";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ProductCard from '../components/ProductCard';
-// import products from '../data/productData';
-
+import ProductCard from '../components/ProductCard'; 
+import { products } from '../data/productData';
+import Pagination from '@mui/material/Pagination';
 
 export default function Products(){
 
@@ -25,7 +24,142 @@ export default function Products(){
     setValue(newValue);
   };
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+  
+  const page1Products = [
+    {
+      id: 1,
+      title: "A Philippine (Upsell)",
+      price: 80.00,
+      originalPrice: null,
+      rating: 0,
+      tag: "Top Rating",
+      defaultImage: "	https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-2_540x.jpg?v=1727684825",
+      hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-5_540x.jpg?v=1727684825",
+      badge: null,
+      variants: []
+    },
+    {
+      id: 2,
+      title: "Bought Together",
+      price: 52.00,
+      originalPrice: null,
+      rating: 4,
+      tag: "Best Selling",
+      defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/12-4_360x.jpg?v=1727684840",
+      hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/15-5_1080x1080.jpg?v=1727684840",
+      badge: null,
+      variants: [{ colorCode: "#FF0000" }, { colorCode: "#808080" }]
+    },
+    {
+      id: 3,
+      title: "Jade Succulent",
+      price: 60.00,
+      originalPrice: null,
+      rating: 2,
+      tag: "Top Rating",
+      defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/1_7d889b7e-e9b3-48c1-8e8d-a696e8d84f7d_360x.jpg?v=1727684809",
+      hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/1_7d889b7e-e9b3-48c1-8e8d-a696e8d84f7d_360x.jpg?v=1727684809",
+      badge: null,
+      variants: []
+    },
+    {
+      id: 4,
+      title: "Palm",
+      price: 50.00,
+      originalPrice: null,
+      rating: 0,
+      tag: "Best Selling",
+      defaultImage: "	https://wpbingo-flacio.myshopify.com/cdn/shop/files/14-3_360x.jpg?v=1727684845",
+      hoverImage: "	https://wpbingo-flacio.myshopify.com/cdn/shop/files/14-3_360x.jpg?v=1727684845",
+      badge: null,
+      variants: [{ colorCode: "#ffffff" }, { colorCode: "blue" }]
+    },
+    {
+      id: 5,
+      title: "Peace Lily",
+      price: 60.00,
+      originalPrice: 90.00,
+      rating: 5,
+      tag: "Top Rating",
+      defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/1_540x.jpg?v=1727684820",
+      hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-3_540x.jpg?v=1727684820",
+      badge: "-33%",
+      variants: [{ colorCode: "#000000" }, { colorCode: "#ffffff" }]
+    },
+    {
+      id: 6,
+      title: "Pink Dragon Tree",
+      price: 80,
+      originalPrice: 100,
+      rating: 0,
+      tag: "Best Selling",
+      defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/7_360x.jpg?v=1727684830",
+      hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/8_360x.jpg?v=1727684830",
+      badge: "Out of stock",
+      variants: []
+    },
+    {
+      id: 7,
+      title: "Ruby Rubber Tree",
+      price: 52.00,
+      originalPrice: 90.00,
+      rating: 0,
+      tag: "Top Rating",
+      defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-6_540x.jpg?v=1727684836",
+      hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-6_540x.jpg?v=1727684836",
+      badge: "- 43%",
+      variants: [{ colorCode: "#000000" }, { colorCode: "#FFC0CB" }]
+    },
+    {
+      id: 8,
+      title: "The Beginner Set",
+      price: 130,
+      originalPrice: null,
+      rating: 0,
+      tag: "Best Selling",
+      defaultImage: "	https://wpbingo-flacio.myshopify.com/cdn/shop/files/14-3_360x.jpg?v=1727684845",
+      hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/16-1_5f1bbfe2-f7bc-4b45-a536-57fd4bd03363.jpg?v=1727684845",
+      badge: null,
+      variants: [{ colorCode: "#FFC0CB" }, { colorCode: "orange" }]
+    },
+    {
+      id: 9,
+      title: "Tiger Aloe",
+      price: 153,
+      originalPrice: null,
+      rating: 0,
+      tag: "Best Selling",
+      defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-9_540x.jpg?v=1727684850", 
+      hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/11-8_540x.jpg?v=1727684850",
+      badge: null,
+      variants: [{ colorCode: "#000000" }, { colorCode: "#FFC0CB" }]
+    },
+  ];
+   
+  const page2Products = [
+    {
+      id: 10,
+      title: "Umbrella Tree",
+      price: 62.00,
+      originalPrice: 90.00,
+      rating: 0,
+      tag: "Top Rating",
+      defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/14-9_360x.jpg?v=1727684856", 
+      hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/14-9_360x.jpg?v=1727684856",
+      badge: "- 31%",
+      variants: [{ colorCode: "#000000" }, { colorCode: "#FFC0CB" }],}
+  ];
+    
   let currentProducts = [];
+
+  if (currentPage === 1) {
+   currentProducts = page1Products;
+  } else if (currentPage === 2) {
+    currentProducts = page2Products;
+  } 
+
 
   return(
     <div className="flex flex-col py-21">
@@ -169,10 +303,42 @@ export default function Products(){
                   </select>
                 </div>
               </div>
-              <div className="grid grid-cols-3">
-                 {currentProducts.map((product) => (
-                   <ProductCard key={product.id} product={product} />
-                 ))}
+              <div className="grid grid-cols-3 gap-4 pt-5">
+                {currentProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+              <div className="flex justify-center pt-15">
+                <Pagination count={2} page={currentPage} onChange={(e, page) => setCurrentPage(page)} shape='rounded'
+                  //  sx={{ '& .MuiPaginationItem-root' : { border: "1px solid #d6d2d2", borderRadius: "0px", backgroundColor: "#313232", color: "#ffffff"}}}
+                  sx={{  
+                    '& .MuiPaginationItem-root': { 
+                      border: "1px solid #d6d2d2",   
+                      borderRadius: "0px !important", 
+                      color: "#313232",
+                      minWidth: "40px",               
+                      height: "40px",
+                      transition: "all 0.2s ease-in-out",
+                      '&:hover': {
+                        backgroundColor: '#313232',
+                        color: '#ffffff'
+                      }
+                    },
+
+                    '& .MuiPaginationItem-root.Mui-selected': {
+                      backgroundColor: "#313232", 
+                      color: "#ffffff",     
+                    },              
+
+                    '& .MuiPaginationItem-previousNext': {
+                      color: '#6b7280', 
+                      '&:hover': {
+                        color: "#ffffff",
+                        backgroundColor: '#313232'
+                      }
+                    }
+                  }}
+                />
               </div>
             </div> 
         </div>

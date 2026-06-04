@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { Autoplay, EffectFade, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "aos/dist/aos.css";   
 import AOS from "aos";
+import { Drawer} from "@mui/material";
 import Dialog from '@mui/material/Dialog';
 import CloseIcon from "@mui/icons-material/Close";
 import { products } from "../data/productData"
@@ -14,6 +16,7 @@ import ProductCard from "../components/ProductCard"
 import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 export function PopOver(){
   const [open, setOpen] = useState(true)
@@ -35,6 +38,80 @@ export function PopOver(){
        </div>
       </div>
     </Dialog>
+  );
+}
+
+export function Announcement() {
+  const [open, setOpen] = useState(true);
+ 
+  return(
+    <Drawer anchor="right" transitionDuration={500} open={open} onClose={() => setOpen(false)}>
+      <div className="w-95 flex flex-col gap-7">
+        <div className="h-58 p-7 relative" style={{ backgroundImage: 'url("https://wpbingo-flacio.myshopify.com/cdn/shop/files/leave.jpg?v=1727751697")'}}>
+          <CloseIcon onClick={() => setOpen(false)} sx={{ position: "absolute", right: 15, top: 20, color: "#828787", fontSize: "20px", backgroundColor: "white"}}></CloseIcon>
+          <span className="text-white bottom-5 text-start absolute uppercase  font-['Libre_Baskerville'] text-2xl">Before You <br/> Leave...</span>
+        </div>
+        <div className="text px-8 flex flex-col gap-2 text-center border-b border-gray-300 pb-6">
+          <span className="text-md text-[#828787] tracking-wider">Take <span className="text-lg text-black">15% off</span> your first order</span>
+          <span className="text-[#828787] text-sm">Enter the code: <span className="text-black underline">CODE15OFF</span></span>
+          <button className="text-xs py-3 mt-5 uppercase w-full bg-[#313232] hover:bg-[#224229] text-white">Continue Shopping</button>
+          <span className="text-left pt-4 text-sm">Recommended</span>
+        </div>
+        <div className="products flex flex-col gap-4 pb-10">
+          <div className="grid grid-cols-2 px-8 gap-5">
+            <div className="left">
+              <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/1_180x.jpg?v=1727684820" />
+            </div>
+            <div className="right flex flex-col gap-2">
+              <span className="font-['Libre_Baskerville'] text-md">Peace Lily</span>
+              <div className="flex items-center gap-1 font-['Libre_Baskerville']">
+                <price className="text-[#828787] text-sm line-through">$90.00 </price>
+                <price className="text-[16px] text-[#dc3545]">$60.00</price>
+              </div>
+              <div className="flex items-center gap-3">
+                <button className="text-xs border border-[#d6d2d2] px-4 py-2 whitespace-nowrap">ADD TO CART</button>
+                <FavoriteBorderIcon sx={{ fontSize: "30px", border: "1px solid #d6d2d2", p: "4px" }}></FavoriteBorderIcon>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 px-8 gap-5">
+            <div className="left">
+              <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/7_180x.jpg?v=1727684830" />
+            </div>
+            <div className="right flex flex-col gap-2">
+              <span className="font-['Libre_Baskerville'] text-md">Pink Dragon Tree</span>
+              <div className="flex items-center gap-1 font-['Libre_Baskerville']">
+                <price className="text-[#828787] text-sm line-through">$100.00 </price>
+                <price className="text-[16px] text-[#dc3545]">$80.00</price>
+              </div>
+              <div className="flex items-center gap-3">
+                <button className="text-xs border border-[#d6d2d2] px-4 py-2 whitespace-nowrap">ADD TO CART</button>
+                <FavoriteBorderIcon sx={{ fontSize: "30px", border: "1px solid #d6d2d2", p: "4px" }}></FavoriteBorderIcon>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 px-8 gap-5">
+            <div className="left">
+              <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-6_180x.jpg?v=1727684836" />
+            </div>
+            <div className="right flex flex-col gap-2">
+              <span className="font-['Libre_Baskerville'] text-md">Ruby Rubber Tree</span>
+              <div className="flex items-center gap-1 font-['Libre_Baskerville']">
+                <price className="text-[#828787] text-sm line-through">$90.00 </price>
+                <price className="text-[16px] text-[#dc3545]">$52.00</price>
+              </div>
+              <div className="flex items-center gap-3">
+                <button className="text-xs border border-[#d6d2d2] px-4 py-2 whitespace-nowrap">ADD TO CART</button>
+                <FavoriteBorderIcon sx={{ fontSize: "30px", border: "1px solid #d6d2d2", p: "4px" }}></FavoriteBorderIcon>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </Drawer>
   );
 }
 
@@ -71,9 +148,9 @@ export function Hero() {
       <section className="overflow-hidden relative">
         <Swiper
           modules={[Autoplay, EffectFade, Pagination]}
-          effect="fade"
+          // effect="fade"
           autoplay={{ delay: 5000, disableOnInteraction: false }}
-          pagination={{ clickable: true, type: 'bullets', modifierClass: 'swiper-pagination-', }}
+          pagination= {{ clickable: true}}
           slidesPerView={1}
           className="h-full"
           onSlideChange={(swiper) => {
@@ -82,7 +159,7 @@ export function Hero() {
               AOS.refresh();
             }, 50);
           }}  
-        >         
+        >           
           {heroSlides.map((slide, index) => (
             <SwiperSlide key={index}>
               <div className="h-250 bg-cover bg-center" style={{ backgroundImage: `url('${slide.image}')` }}>
@@ -115,7 +192,7 @@ export function Hero() {
           ))}
         </Swiper>
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr_1.2fr] px-4 lg:px-8 gap-3 mt-10 lg:-mt-60">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr_1.2fr] px-4 lg:px-8 gap-3 mt-10 lg:-mt-45">
           <div className="card-1 relative group overflow-hidden">
             <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/banner-1.jpg?v=1727768126" className="w-full h-full object-cover transition-transform duration-400 ease-in-out group-hover:scale-105" />
             <div className="content absolute inset-0 p-4 lg:p-8 flex flex-col gap-1 justify-end">
@@ -179,10 +256,13 @@ export function Decorate(){
         </div>
       </div>
       <div className="right-box flex justify-center relative overflow-hidden">
-        <div className="pulsing-oval-1 absolute rounded-[50%] w-full h-full rotate-[-25deg] pointer-events-none"></div>
-  
-        <div className="pulsing-oval-2 absolute rounded-[50%] w-full h-full rotate-[-25deg] pointer-events-none"></div>
-          <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/policy-image-1.webp?v=1727772240" />
+        <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/policy-image-1.webp?v=1727772240" />
+        <div className="pulsing-oval-2 absolute">
+          <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/policy-image-2.png?v=1727772240"/>
+        </div>
+        <div className="pulsing-oval-1 absolute top-12">
+          <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/policy-image-3.png?v=1727772240" />
+        </div> 
         </div>
       </div>
   );
@@ -214,7 +294,7 @@ export function Rating() {
       <div className="overflow-x-auto">
         <div className="grid grid-rows-2 grid-flow-col auto-cols-[250px] gap-4 lg:grid-flow-row lg:grid-cols-4">
           {visibleProducts.map((product) => (
-              <ProductCard product={product} />
+              <ProductCard product={product} key={product.id} />
           ))}     
         </div>
       </div>
@@ -305,27 +385,27 @@ export function Review(){
 
 export function Plants(){
   return(
-    <div className="py-25 px-12 flex flex-col gap-15">
-      <div className="grid grid-cols-2">
+    <div className="py-25 px-4 lg:px-12 flex flex-col gap-15">
+      <div className="grid lg:grid-cols-2 gap-4">
         <div className="left relative">
           <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/text-rotate.png?v=1727860890" className="absolute left-16 -top-13 animate-[spin_15s_linear_infinite]"/>
           <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/banner-4.jpg?v=1727860877"/>          
         </div>
-        <div className="right flex flex-col items-start px-18 justify-center gap-6">
-          <h2 className="text-6xl text-[#224229] font-['Libre_Baskerville']">Plants for <span className="italic">offices</span></h2>
-          <p className="text-sm text-[#828787] tracking-wider">Praesent egestas tristique nibh. Sed mollis, eros et ultrices tempus, mauris ipsum <br />
-            aliquam libero, non adipiscing dolor urna a orci. Fusce convallis metus id felis <br />
+        <div className="right flex flex-col items-start px-4 lg:px-18 justify-center gap-6">
+          <h2 className="text-3xl lg:text-6xl text-[#224229] font-['Libre_Baskerville']">Plants for <span className="italic">offices</span></h2>
+          <p className="text-sm text-[#828787] tracking-wider">Praesent egestas tristique nibh. Sed mollis, eros et ultrices tempus, mauris ipsum <br className="lg:flex hidden"/>
+            aliquam libero, non adipiscing dolor urna a orci. Fusce convallis metus id felis <br className="lg:flex hidden"/>
             luctus adipiscing. Integer tincidunt. Etiam imperdiet imperdiet orci
           </p>
           <button className="py-3 px-8 text-sm tracking-wider text-white bg-[#224229] hover:bg-[#323232] duration-400">Shop Collection</button>
         </div>
       </div>
 
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="left flex flex-col items-start justify-center gap-6">
-          <h2 className="text-6xl text-[#224229] font-['Libre_Baskerville'] ">Sets for all <span className="italic">styles</span></h2>
-          <p className="text-sm text-[#828787] tracking-wider">Praesent egestas tristique nibh. Sed mollis, eros et ultrices tempus, mauris ipsum <br />
-            aliquam libero, non adipiscing dolor urna a orci. Fusce convallis metus id felis <br />
+          <h2 className="text-3xl lg:text-6xl text-[#224229] font-['Libre_Baskerville']">Sets for all <span className="italic">styles</span></h2>
+          <p className="text-sm text-[#828787] tracking-wider">Praesent egestas tristique nibh. Sed mollis, eros et ultrices tempus, mauris ipsum <br className="lg:flex hidden"/>
+            aliquam libero, non adipiscing dolor urna a orci. Fusce convallis metus id felis <br className="lg:flex hidden" />
             luctus adipiscing. Integer tincidunt. Etiam imperdiet imperdiet orci
           </p>
           <button className="py-3 px-8 text-sm tracking-wider text-white bg-[#224229] hover:bg-[#323232] duration-400">Shop Collection</button>
@@ -343,9 +423,9 @@ export function Plants(){
 export function SignUp(){
   return(
     <div className="py-25 bg-[#e7e2ea] flex flex-col justify-center items-center gap-4">
-      <h2 className="text-4xl font-['Libre_Baskerville']">Sign Up To Our <span className="italic">Newsletter</span></h2>
-      <p className="text-sm text-[#828787] pb-6 tracking-wider">Stay up to date on the latest news with our carefully curated newsletters.</p>
-      <div className="flex w-[45%]">
+      <h2 className="text-center text-4xl font-['Libre_Baskerville']">Sign Up To Our <span className="italic">Newsletter</span></h2>
+      <p className="text-center text-sm text-[#828787] pb-6 tracking-wider">Stay up to date on the latest news with our carefully curated newsletters.</p>
+      <div className="flex w-[90%] lg:w-[45%]">
         <input type="email" placeholder="Email address..." className="py-4 w-full px-7 bg-white focus:outline-none placeholder:text-sm"/>
         <button className="bg-[#313232] text-white text-sm px-8">Submit</button>
       </div>
@@ -398,8 +478,15 @@ export function BringLife(){
             prevEl: '.prev-btn',
             nextEl: '.next-btn',
           }}
-          slidesPerView={4}
+          slidesPerView={1}
           spaceBetween={22}
+
+          breakpoints={{
+            350:{ slidesPerView: 1},
+            640:{ slidesPerView: 2},
+            768:{ slidesPerView: 3},
+            1024:{ slidesPerView: 4},
+          }}
         >
           {cardData.map((card) => (
             <SwiperSlide key={card.id}>
@@ -412,7 +499,7 @@ export function BringLife(){
           ))} 
       </Swiper>
       </div>
-      <div className="grid grid-cols-4 px-12 pt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-12 pt-12">
         <div className="delivery flex items-center gap-5">
            <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/policy-4.png?v=1727923043" className="tickle-image" />
            <div className="text flex flex-col">
