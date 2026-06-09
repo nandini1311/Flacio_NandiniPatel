@@ -8,6 +8,7 @@ import CreateAccount from "./pages/CreateAccount";
 import Products from "./pages/Products";
 import LogIn from "./pages/LogIn";
 import ContactUs from "./pages/ContactUs";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/createaccount" element={<CreateAccount />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
       </main>  
 

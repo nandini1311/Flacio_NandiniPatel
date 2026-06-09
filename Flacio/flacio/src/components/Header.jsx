@@ -16,6 +16,7 @@ import AOS from "aos";
 export default function Header() {
   const location = useLocation(); 
   const isHomePage = location.pathname === "/";
+  const [options, setOptions] = useState(null)
   const [open, setOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(false);
   const [loginOpen, setloginOpen] = useState(false);
@@ -61,28 +62,31 @@ export default function Header() {
               <SearchIcon sx={{ fontSize: "24px" }} />
             </IconButton>
 
-            <div className="menus hidden lg:flex items-center gap-6">
-              <div className="title static group cursor-pointer">
+            <div className="menus hidden lg:flex items-center gap-6"> 
+              <div onMouseEnter={() => setOptions('home')} onMouseLeave={() => setOptions(null)} className="title static cursor-pointer">
                 <div className="nav-link active flex items-center gap-1">
                   <Link className="text-xs tracking-wider">HOME</Link>
                   <i className="fa-solid fa-angle-down text-[10px]"></i>
                 </div>
-                <div className="absolute z-50 grid grid-cols-3 gap-5 bg-white left-0 top-full p-4 w-185 opacity-0 invisible group-hover:visible group-hover:opacity-100">
-                  <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-1.jpg?v=1729049735" />Home Modern</div>
+              {options === 'home' &&(
+                <div className="absolute z-50 grid grid-cols-3 gap-5 bg-white left-0 top-full p-4 w-185">
+                  <div className="text-sm text-[#828787] text-center hover:-translate-y-3"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-1.jpg?v=1729049735" /><span>Home Modern</span></div>
                   <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-2.jpg?v=1729049735" />Home Flat</div>
                   <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-3.jpg?v=1729049735" />Home Collection</div>
                   <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-4.jpg?v=1729049735" />Home Classic</div>
                   <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-5.jpg?v=1729049735" />Home Clean</div>
                   <div className="text-sm text-[#828787] text-center"><img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/home-6.jpg?v=1729049735" />Home Stylish</div>
-              </div>
+               </div>
+              )}
              </div>
  
-              <div className="title static group cursor-pointer">
+              <div onMouseEnter={() => setOptions('shop')} onMouseLeave={() => setOptions(null)} className="title static group cursor-pointer">
                 <div className="nav-link flex items-center gap-1">
                   <Link className="text-xs tracking-wider">SHOP</Link>
                   <i className="fa-solid fa-angle-down text-[10px]"></i>
                 </div>
-                <div className="absolute grid grid-cols-2 gap-7 bg-white left-0 top-full px-15 py-10 opacity-0 invisible group-hover:visible group-hover:opacity-100">
+              {options === 'shop' &&(  
+                <div className="absolute grid grid-cols-2 gap-7 bg-white left-0 top-full px-15 py-10">
                   <div className="flex gap-6 text-[#224229]">
                     <div className="relative hover:-translate-y-5 duration-300">
                       <img src="https://wpbingo-flacio.myshopify.com/cdn/shop/files/shop1.webp?v=1727751500"/>
@@ -119,14 +123,16 @@ export default function Header() {
                     </div>
                   </div>
                </div>
+              )} 
              </div>
 
-              <div className="title static group cursor-pointer">
+              <div onMouseEnter={() => setOptions('product')} onMouseLeave={() => setOptions(null)} className="title static group cursor-pointer">
                 <div className="nav-link flex items-center gap-1">
                   <Link className="text-xs tracking-wider">PRODUCT</Link>
                   <i className="fa-solid fa-angle-down text-[10px]"></i>
                 </div>
-                <div className="absolute grid grid-cols-4 gap-7 bg-white left-0 w-full top-full px-18 py-10 opacity-0 invisible group-hover:visible group-hover:opacity-100">
+              {options === 'product' &&(  
+                <div className="absolute grid grid-cols-4 gap-7 bg-white left-0 w-full top-full px-18 py-10">
                   <div className="product">
                     <h2 className="text-[#313232] font-['Libre_Baskerville'] text-xl border-b border-gray-300">Product Layout</h2>
                     <ul className="text-[#828787] text-sm pt-3 leading-7">
@@ -162,14 +168,16 @@ export default function Header() {
                     </ul>
                   </div>
                 </div>
+              )}  
              </div>
 
-              <div className="title static group cursor-pointer">
+              <div onMouseEnter={() => setOptions('blog')} onMouseLeave={() => setOptions(null)} className="title static group cursor-pointer">
                 <div className="nav-link flex items-center gap-1">
                   <Link className="text-xs tracking-wider">BLOG</Link>
                   <i className="fa-solid fa-angle-down text-[10px]"></i>
                 </div>
-                <div className="absolute grid grid-cols-2 gap-10 w-150 bg-white left-50 top-full px-8 py-10 opacity-0 invisible group-hover:visible group-hover:opacity-100">
+              {options === 'blog' &&(  
+                <div className="absolute grid grid-cols-2 gap-10 w-150 bg-white left-50 top-full px-8 py-10">
                   <div className="post">
                     <h2 className="text-[#313232] font-['Libre_Baskerville'] text-xl border-b border-gray-300">Layout & Post</h2>
                     <ul className="text-[#828787] text-sm pt-3 leading-7">
@@ -193,18 +201,20 @@ export default function Header() {
                     </div> 
                   </div>
                 </div>
+              )}  
              </div>
 
-              <div className="title static group cursor-pointer">
+              <div onMouseEnter={() => setOptions('featured')} onMouseLeave={() => setOptions(null)} className="title static group cursor-pointer">
                 <div className="nav-link flex items-center gap-1">
                   <Link className="text-xs tracking-wider">FEATURED</Link>
                   <i className="fa-solid fa-angle-down text-[10px]"></i>
                 </div>
-                <div className="absolute grid grid-cols-5 gap-10 w-full bg-white left-0 top-full px-18 py-10 opacity-0 invisible group-hover:visible group-hover:opacity-100">
+              {options === 'featured' &&(  
+                <div className="absolute grid grid-cols-5 gap-10 w-full bg-white left-0 top-full px-18 py-10">
                   <div className="page">
                     <h2 className="text-[#313232] font-['Libre_Baskerville'] text-xl border-b border-gray-300">Page</h2>
-                    <ul className="text-[#828787] text-sm pt-3 leading-7">
-                      <li>About Us</li>  <Link to="/contactus">Contact Us</Link>  <li>Faqs</li>  <li>Faqs 2</li>
+                    <ul className="text-[#828787] flex flex-col text-sm pt-3 leading-7">
+                      <Link to="/aboutus">About Us</Link>  <Link to="/contactus">Contact Us</Link>  <li>Faqs</li>  <li>Faqs 2</li>
                       <li>Wishlist</li>  <li>404 Error</li> 
                     </ul>
                   </div>
@@ -234,6 +244,7 @@ export default function Header() {
                     </ul>
                   </div>
                 </div>
+              )}  
               </div>
            </div>
           </div>
@@ -436,27 +447,3 @@ export default function Header() {
     </>
   );
 }
-
-
-
- {/* <div  className={`absolute top-0 bottom-0 right-0 w-full h-full bg-white p-4 pt-8 transition-transform duration-300 z-20
-              ${openSubMenu ? "translate-x-0" : "translate-x-full"}`}  >
-            <div className="flex items-center gap-2 border-b border-[#d6d2d2] pb-4 mb-4">
-              <IconButton onClick={() => setOpenSubMenu(false)} sx={{ p: 0.5 }}>
-                <KeyboardArrowLeftOutlinedIcon sx={{ fontSize: "22px", color: "black" }} />
-              </IconButton>
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#313232]">Back to Home</span>
-            </div>
-
-            <List>
-              <div className="p-1.5 border-b border-[#f3f3f3]">
-                <ListItem className="text-xs text-[#313232] -ml-4">Sub Item 1</ListItem>
-              </div>
-              <div className="p-1.5 border-b border-[#f3f3f3]">
-                <ListItem className="text-xs text-[#313232] -ml-4">Sub Item 2</ListItem>
-              </div>
-              <div className="p-1.5 border-b border-[#f3f3f3]">
-                <ListItem className="text-xs text-[#313232] -ml-4">Sub Item 3</ListItem>
-              </div>
-            </List>
-     /</div> */}

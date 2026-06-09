@@ -3,6 +3,7 @@ import Slider from "@mui/material/Slider";
 import ProductCard from '../components/ProductCard'; 
 import { products } from '../data/productData';
 import Pagination from '@mui/material/Pagination';
+import QuickView from "../components/QuickView";
 
 export default function Products(){
 
@@ -35,6 +36,8 @@ export default function Products(){
       originalPrice: null,
       rating: 0,
       tag: "Top Rating",
+      brand: "wpbingo",
+      para: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus. Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum",
       defaultImage: "	https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-2_540x.jpg?v=1727684825",
       hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-5_540x.jpg?v=1727684825",
       badge: null,
@@ -47,6 +50,8 @@ export default function Products(){
       originalPrice: null,
       rating: 4,
       tag: "Best Selling",
+      brand: "Lulu Store",
+      para: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus. Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum",
       defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/12-4_360x.jpg?v=1727684840",
       hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/15-5_1080x1080.jpg?v=1727684840",
       badge: null,
@@ -59,6 +64,8 @@ export default function Products(){
       originalPrice: null,
       rating: 2,
       tag: "Top Rating",
+      brand: "Akaza Store",
+      para: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus. Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum",
       defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/1_7d889b7e-e9b3-48c1-8e8d-a696e8d84f7d_360x.jpg?v=1727684809",
       hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/1_7d889b7e-e9b3-48c1-8e8d-a696e8d84f7d_360x.jpg?v=1727684809",
       badge: null,
@@ -71,6 +78,8 @@ export default function Products(){
       originalPrice: null,
       rating: 0,
       tag: "Best Selling",
+      brand: "Akatsuki Store",
+      para: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus. Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum",
       defaultImage: "	https://wpbingo-flacio.myshopify.com/cdn/shop/files/14-3_360x.jpg?v=1727684845",
       hoverImage: "	https://wpbingo-flacio.myshopify.com/cdn/shop/files/14-3_360x.jpg?v=1727684845",
       badge: null,
@@ -83,6 +92,8 @@ export default function Products(){
       originalPrice: 90.00,
       rating: 5,
       tag: "Top Rating",
+      brand: "Akatsuki Store",
+      para: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus. Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum",
       defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/1_540x.jpg?v=1727684820",
       hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-3_540x.jpg?v=1727684820",
       badge: "-33%",
@@ -95,6 +106,8 @@ export default function Products(){
       originalPrice: 100,
       rating: 0,
       tag: "Best Selling",
+      brand: "wpbingo",
+      para: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus. Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum",
       defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/7_360x.jpg?v=1727684830",
       hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/8_360x.jpg?v=1727684830",
       badge: "Out of stock",
@@ -107,6 +120,8 @@ export default function Products(){
       originalPrice: 90.00,
       rating: 0,
       tag: "Top Rating",
+      brand: "SE Store",
+      para: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus. Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum",
       defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-6_540x.jpg?v=1727684836",
       hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-6_540x.jpg?v=1727684836",
       badge: "- 43%",
@@ -119,6 +134,8 @@ export default function Products(){
       originalPrice: null,
       rating: 0,
       tag: "Best Selling",
+      brand: "Akaza Store",
+      para: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus. Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum",
       defaultImage: "	https://wpbingo-flacio.myshopify.com/cdn/shop/files/14-3_360x.jpg?v=1727684845",
       hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/16-1_5f1bbfe2-f7bc-4b45-a536-57fd4bd03363.jpg?v=1727684845",
       badge: null,
@@ -131,6 +148,8 @@ export default function Products(){
       originalPrice: null,
       rating: 0,
       tag: "Best Selling",
+      brand: "wpbingo",
+      para: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus. Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum",
       defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/10-9_540x.jpg?v=1727684850", 
       hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/11-8_540x.jpg?v=1727684850",
       badge: null,
@@ -146,6 +165,8 @@ export default function Products(){
       originalPrice: 90.00,
       rating: 0,
       tag: "Top Rating",
+      brand: "wpbingo",
+      para: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus. Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum",
       defaultImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/14-9_360x.jpg?v=1727684856", 
       hoverImage: "https://wpbingo-flacio.myshopify.com/cdn/shop/files/14-9_360x.jpg?v=1727684856",
       badge: "- 31%",
@@ -160,6 +181,8 @@ export default function Products(){
     currentProducts = page2Products;
   } 
 
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return(
     <div className="flex flex-col py-21">
@@ -169,7 +192,7 @@ export default function Products(){
 
       <div className="main py-15 px-15">
         <div className="grid grid-cols-12 gap-5">
-           <div className="col-span-3">
+           <div className="col-span-3 hidden lg:block">
               <aside className="pr-4 space-y-8">
                 <div className="collections">
                   <div onClick={() => toggleSection("collections")} className="flex justify-between items-center cursor-pointer group py-2">
@@ -287,8 +310,8 @@ export default function Products(){
            </div>
 
             <div className="col-span-9">
-              <div className="top flex justify-between items-center">
-                <span className="text-xs text-[#828787]">You've viewed 6 of 6 products</span>
+              <div className="top hidden md:flex justify-between items-center">
+                <span className="text-xs text-[#828787]">You've viewed 9 of 9 products</span>
                 <div className="">
                   <select className="bg-transparent border border-[#d6d2d2] outline-none font-medium text-xs py-2 px-4">
                     <option>Featured</option>
@@ -303,9 +326,13 @@ export default function Products(){
                   </select>
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-4 pt-5">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 pt-5">
                 {currentProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard key={product.id} product={product} 
+                      onQuickViewClick={() => {
+                        setSelectedProduct(product);
+                        setIsModalOpen(true);
+                      }}/>
                 ))}
               </div>
               <div className="flex justify-center pt-15">
@@ -342,6 +369,12 @@ export default function Products(){
               </div>
             </div> 
         </div>
+
+         <QuickView
+            product={selectedProduct} 
+            isOpen={isModalOpen} 
+            onClose={() => setIsModalOpen(false)} 
+          />
       </div>
     </div>
   );

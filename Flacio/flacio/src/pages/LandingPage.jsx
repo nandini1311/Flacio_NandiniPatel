@@ -17,6 +17,8 @@ import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import QuickView from "../components/QuickView";
+import Compare from "../components/Compare";
 
 export function PopOver(){
   const [open, setOpen] = useState(true)
@@ -40,6 +42,7 @@ export function PopOver(){
     </Dialog>
   );
 }
+
 
 export function Announcement() {
   const [open, setOpen] = useState(true);
@@ -65,8 +68,8 @@ export function Announcement() {
             <div className="right flex flex-col gap-2">
               <span className="font-['Libre_Baskerville'] text-md">Peace Lily</span>
               <div className="flex items-center gap-1 font-['Libre_Baskerville']">
-                <price className="text-[#828787] text-sm line-through">$90.00 </price>
-                <price className="text-[16px] text-[#dc3545]">$60.00</price>
+                <span className="text-[#828787] text-sm line-through">$90.00 </span>
+                <span className="text-[16px] text-[#dc3545]">$60.00</span>
               </div>
               <div className="flex items-center gap-3">
                 <button className="text-xs border border-[#d6d2d2] px-4 py-2 whitespace-nowrap">ADD TO CART</button>
@@ -82,8 +85,8 @@ export function Announcement() {
             <div className="right flex flex-col gap-2">
               <span className="font-['Libre_Baskerville'] text-md">Pink Dragon Tree</span>
               <div className="flex items-center gap-1 font-['Libre_Baskerville']">
-                <price className="text-[#828787] text-sm line-through">$100.00 </price>
-                <price className="text-[16px] text-[#dc3545]">$80.00</price>
+                <span className="text-[#828787] text-sm line-through">$100.00 </span>
+                <span className="text-[16px] text-[#dc3545]">$80.00</span>
               </div>
               <div className="flex items-center gap-3">
                 <button className="text-xs border border-[#d6d2d2] px-4 py-2 whitespace-nowrap">ADD TO CART</button>
@@ -99,8 +102,8 @@ export function Announcement() {
             <div className="right flex flex-col gap-2">
               <span className="font-['Libre_Baskerville'] text-md">Ruby Rubber Tree</span>
               <div className="flex items-center gap-1 font-['Libre_Baskerville']">
-                <price className="text-[#828787] text-sm line-through">$90.00 </price>
-                <price className="text-[16px] text-[#dc3545]">$52.00</price>
+                <span className="text-[#828787] text-sm line-through">$90.00 </span>
+                <span className="text-[16px] text-[#dc3545]">$52.00</span>
               </div>
               <div className="flex items-center gap-3">
                 <button className="text-xs border border-[#d6d2d2] px-4 py-2 whitespace-nowrap">ADD TO CART</button>
@@ -271,22 +274,38 @@ export function Decorate(){
 
 export function Rating() {
   const [activeTab, setActiveTab] = useState('topRating');
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [compareList, setCompareList] = useState([]);
+  const [isCompareOpen, setIsCompareOpen] = useState(false);
   const visibleProducts = activeTab === "topRating" ? products.slice(0, 8) : products.slice(8, 16)
+  
+const handleAddToCompare = (product) => {
+  if (!product) return;
 
+  const exists = compareList.some((item) => item.id === product.id);
+
+  if (!exists) {
+    setCompareList((prevList) => [...prevList, product]);
+  }
+  setIsCompareOpen(true);
+};
+
+ 
   return (
     <div className="px-4 lg:px-12 py-12 text-center">
       
       <div className="flex justify-center items-center gap-6 text-2xl md:text-4xl mb-10">
         <button
           onClick={() => setActiveTab('topRating')}
-          className={`font-['Libre_Baskerville'] duration-200 ${activeTab === 'topRating' ? 'text-gray-900' : 'text-gray-500'}`}
+          className={`font-['Libre_Baskerville'] duration-200 ${activeTab === 'topRating' ? 'text-[#224229]' : 'text-gray-500'}`}
         >
           Top <span className="italic">Rating</span>
         </button>
         <span className="text-gray-400 font-light">/</span>
         <button
           onClick={() => setActiveTab('bestSelling')}
-          className={`font-['Libre_Baskerville'] duration-200 ${activeTab === 'bestSelling' ? 'text-gray-900' : 'text-gray-500'}`}
+          className={`font-['Libre_Baskerville'] duration-200 ${activeTab === 'bestSelling' ? 'text-[#224229]' : 'text-gray-500'}`}
         >
           Best <span className="italic">Selling</span>
         </button>
@@ -294,7 +313,13 @@ export function Rating() {
       <div className="overflow-x-auto">
         <div className="grid grid-rows-2 grid-flow-col auto-cols-[250px] gap-4 lg:grid-flow-row lg:grid-cols-4">
           {visibleProducts.map((product) => (
-              <ProductCard product={product} key={product.id} />
+              <ProductCard product={product} key={product.id}
+              onQuickViewClick={() => {
+                setSelectedProduct(product);
+                setIsModalOpen(true);
+              }}
+              onCompareClick={() => handleAddToCompare(product)}
+           />
           ))}     
         </div>
       </div>
@@ -308,6 +333,18 @@ export function Rating() {
           </div>
         </div>
       </div>
+
+      <QuickView
+        product={selectedProduct} 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+      <Compare 
+        productsList={compareList}
+        isOpen={isCompareOpen}
+        onClose={() => setIsCompareOpen(false)}
+        onRemoveItem= {(id) => setCompareList((prev) => prev.filter((p) => p.id !== id))}
+      />
     </div>
   );
 };
@@ -351,8 +388,7 @@ export function Review(){
   ];
 
   return(
-    <div 
-      className="py-25 bg-center bg-cover" 
+    <div className="py-25 bg-center bg-cover" 
       style={{ backgroundImage: 'url("https://wpbingo-flacio.myshopify.com/cdn/shop/files/bg-1.jpg?v=1727854965")' }}
     >   
       <div className="max-w-6xl mx-auto">
@@ -378,7 +414,7 @@ export function Review(){
           ))}
         </Swiper>
       </div>
-      </div>
+    </div>
   );
 }
 
